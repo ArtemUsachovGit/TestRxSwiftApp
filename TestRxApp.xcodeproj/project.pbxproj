@@ -31,6 +31,7 @@
 		0D0E502D26441B4F00BF6598 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E502C26441B4F00BF6598 /* User.swift */; };
 		0D0E502F26441DEC00BF6598 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E502E26441DEC00BF6598 /* World.swift */; };
 		0D0E50312644232D00BF6598 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E50302644232D00BF6598 /* AuthManager.swift */; };
+		0D0E50332645240800BF6598 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E50322645240800BF6598 /* DIContainer.swift */; };
 		0ED2615BB73F675A8DDBA41C /* Pods_TestRxApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615EB2B28BFC1530BD86495C /* Pods_TestRxApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		0D0E502C26441B4F00BF6598 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0D0E502E26441DEC00BF6598 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		0D0E50302644232D00BF6598 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		0D0E50322645240800BF6598 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		615EB2B28BFC1530BD86495C /* Pods_TestRxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestRxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F85EF4103170F6FB9977CC /* Pods-TestRxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestRxApp.release.xcconfig"; path = "Target Support Files/Pods-TestRxApp/Pods-TestRxApp.release.xcconfig"; sourceTree = "<group>"; };
 		D7A9D8BA8FD3194B18C43BBB /* Pods-TestRxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestRxApp.debug.xcconfig"; path = "Target Support Files/Pods-TestRxApp/Pods-TestRxApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				0D0E50002642D1FC00BF6598 /* DataManager.swift */,
 				0D0E502A264416F100BF6598 /* Wrapppers.swift */,
 				0D0E50302644232D00BF6598 /* AuthManager.swift */,
+				0D0E50322645240800BF6598 /* DIContainer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				0D0E4FE32642AB4100BF6598 /* LoginViewController.swift in Sources */,
 				0D0E4FCE2642AA2100BF6598 /* AppDelegate.swift in Sources */,
 				0D0E4FEE2642BA8300BF6598 /* PostsViewModel.swift in Sources */,
+				0D0E50332645240800BF6598 /* DIContainer.swift in Sources */,
 				0D0E50252643F1A200BF6598 /* AppCoordinator.swift in Sources */,
 				0D0E4FF42642BB6000BF6598 /* Comment.swift in Sources */,
 				0D0E50312644232D00BF6598 /* AuthManager.swift in Sources */,

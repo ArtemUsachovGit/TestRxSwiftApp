@@ -29,9 +29,15 @@ final class PostsViewModel {
     private var favPosts = Set<Post>() //ids of fav posts
     
     private static let fileName = "posts"
-    private let dataManager = DataManager()
     
-    init() {
+    private let dataManager: DataManager
+    private let authManager: AuthManager
+    
+    init(dataManager: DataManager, authManager: AuthManager) {
+        
+        self.authManager = authManager
+        self.dataManager = dataManager
+        
         selectedMode
             .subscribe(onNext: { [unowned self] mode in
                 self.mode = mode
@@ -65,7 +71,7 @@ final class PostsViewModel {
     }
     
     func logout() {
-        Current.authManager.logout()
+        authManager.logout()
     }
     
     func loadPosts() {
@@ -99,7 +105,7 @@ private extension PostsViewModel {
     }
     
     func loadLocalPosts() {
-        if let postsData = dataManager.loadData(fileName: PostsViewModel.fileName),
+        if let postsData = dataManager.loadData(path: PostsViewModel.fileName),
            let posts = try? JSONDecoder().decode([Post].self, from: postsData) {
             self.setupInitialData(posts)
         }

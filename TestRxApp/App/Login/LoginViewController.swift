@@ -18,7 +18,7 @@ final class LoginViewController: UIViewController, Coordinatable {
     @IBOutlet weak private var loginButton: UIButton!
     
     private let bag = DisposeBag()
-    private let viewModel = LoginViewModel()
+    var viewModel: LoginViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

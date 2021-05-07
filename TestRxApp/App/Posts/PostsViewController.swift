@@ -16,8 +16,9 @@ final class PostsViewController: UIViewController, Coordinatable {
     @IBOutlet weak private var postsTable: UITableView!
     @IBOutlet weak private var loadingIndicator: UIActivityIndicatorView!
     
+    var viewModel: PostsViewModel!
+    
     private let bag = DisposeBag()
-    private let viewModel = PostsViewModel()
     private let cellIdentifier = R.reuseIdentifier.postCell.identifier
     private let searchController = UISearchController(searchResultsController: nil)
     

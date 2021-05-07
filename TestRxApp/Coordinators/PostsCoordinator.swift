@@ -27,6 +27,14 @@ class PostsCoordinator: NavigationCoordinator {
     
     func start() {
         guard let vc = Storyboard.main.postsController() else { return }
+        
+        //Dependencies
+        let dataManager = Current.diContainer.resolve(service: DataManager.self)!
+        let authManager = Current.diContainer.resolve(service: AuthManager.self)!
+        
+        let viewModel = PostsViewModel(dataManager: dataManager,
+                                       authManager: authManager)
+        vc.viewModel = viewModel
         vc.coordinator = self
         self.navigationController.setViewControllers([vc], animated: true)
     }

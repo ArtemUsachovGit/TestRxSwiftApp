@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AutManager {
+class AuthManager {
     
     private var user = User()
     

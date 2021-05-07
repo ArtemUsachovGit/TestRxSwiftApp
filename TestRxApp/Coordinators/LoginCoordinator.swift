@@ -27,7 +27,9 @@ class LoginCoordinator: NavigationCoordinator {
     
     func start() {
         guard let loginVC = Storyboard.main.loginController() else { return }
+        let viweModel = LoginViewModel()
         loginVC.coordinator = self
+        loginVC.viewModel = viweModel
         navigationController.setViewControllers([loginVC], animated: true)
     }
     
