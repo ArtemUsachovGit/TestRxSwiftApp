@@ -89,12 +89,14 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `PostDetails`.
+    static let postDetails = _R.storyboard.postDetails()
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -107,6 +109,13 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "PostDetails", bundle: ...)`
+    static func postDetails(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.postDetails)
     }
     #endif
 
@@ -170,10 +179,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `CommentTableViewCell`.
+    static let commentTableViewCell = _R.nib._CommentTableViewCell()
     /// Nib `PostTableViewCell`.
     static let postTableViewCell = _R.nib._PostTableViewCell()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "CommentTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.commentTableViewCell) instead")
+    static func commentTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.commentTableViewCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "PostTableViewCell", in: bundle)`
@@ -183,6 +202,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func commentTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CommentTableViewCell? {
+      return R.nib.commentTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CommentTableViewCell
+    }
+
     static func postTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> PostTableViewCell? {
       return R.nib.postTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? PostTableViewCell
     }
@@ -190,8 +213,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `CommentCell`.
+    static let commentCell: Rswift.ReuseIdentifier<CommentTableViewCell> = Rswift.ReuseIdentifier(identifier: "CommentCell")
     /// Reuse identifier `PostCell`.
     static let postCell: Rswift.ReuseIdentifier<PostTableViewCell> = Rswift.ReuseIdentifier(identifier: "PostCell")
 
@@ -220,6 +245,20 @@ struct _R: Rswift.Validatable {
 
   #if os(iOS) || os(tvOS)
   struct nib {
+    struct _CommentTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = CommentTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "CommentCell"
+      let name = "CommentTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> CommentTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? CommentTableViewCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _PostTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = PostTableViewCell
 
@@ -246,6 +285,9 @@ struct _R: Rswift.Validatable {
       #endif
       #if os(iOS) || os(tvOS)
       try main.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try postDetails.validate()
       #endif
     }
 
@@ -285,6 +327,26 @@ struct _R: Rswift.Validatable {
         }
         if _R.storyboard.main().loginController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginController' could not be loaded from storyboard 'Main' as 'LoginViewController'.") }
         if _R.storyboard.main().postsController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'postsController' could not be loaded from storyboard 'Main' as 'PostsViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct postDetails: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "PostDetails"
+      let postDetails = StoryboardViewControllerResource<PostDetailsViewController>(identifier: "PostDetails")
+
+      func postDetails(_: Void = ()) -> PostDetailsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: postDetails)
+      }
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.postDetails().postDetails() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'postDetails' could not be loaded from storyboard 'PostDetails' as 'PostDetailsViewController'.") }
       }
 
       fileprivate init() {}

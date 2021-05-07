@@ -95,6 +95,7 @@ extension PostsViewController: UISearchResultsUpdating {
 extension PostsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.selected(postAt: indexPath.row)
+        let post = viewModel.selected(postAt: indexPath.row)
+        coordinator?.showDetails(for: post)
     }
 }

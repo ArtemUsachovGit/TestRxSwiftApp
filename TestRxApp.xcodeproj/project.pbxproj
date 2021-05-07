@@ -34,6 +34,13 @@
 		0D0E50332645240800BF6598 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E50322645240800BF6598 /* DIContainer.swift */; };
 		0D0E50352645337600BF6598 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E50342645337600BF6598 /* Network.swift */; };
 		0D0E503726453D3E00BF6598 /* PostsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E503626453D3E00BF6598 /* PostsManager.swift */; };
+		0D0E503A2645470E00BF6598 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E50392645470E00BF6598 /* PostDetailsViewController.swift */; };
+		0D0E503C2645471C00BF6598 /* PostDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E503B2645471C00BF6598 /* PostDetails.storyboard */; };
+		0D0E503E26454BB900BF6598 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E503D26454BB900BF6598 /* IntrinsicTableView.swift */; };
+		0D0E504026454DD700BF6598 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E503F26454DD700BF6598 /* PostDetailsViewModel.swift */; };
+		0D0E504226454E1600BF6598 /* PostDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E504126454E1600BF6598 /* PostDetailsCoordinator.swift */; };
+		0D0E5046264551F500BF6598 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E5044264551F500BF6598 /* CommentTableViewCell.swift */; };
+		0D0E5047264551F500BF6598 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0E5045264551F500BF6598 /* CommentTableViewCell.xib */; };
 		0ED2615BB73F675A8DDBA41C /* Pods_TestRxApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615EB2B28BFC1530BD86495C /* Pods_TestRxApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +74,13 @@
 		0D0E50322645240800BF6598 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		0D0E50342645337600BF6598 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		0D0E503626453D3E00BF6598 /* PostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsManager.swift; sourceTree = "<group>"; };
+		0D0E50392645470E00BF6598 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		0D0E503B2645471C00BF6598 /* PostDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetails.storyboard; sourceTree = "<group>"; };
+		0D0E503D26454BB900BF6598 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
+		0D0E503F26454DD700BF6598 /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
+		0D0E504126454E1600BF6598 /* PostDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsCoordinator.swift; sourceTree = "<group>"; };
+		0D0E5044264551F500BF6598 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		0D0E5045264551F500BF6598 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		615EB2B28BFC1530BD86495C /* Pods_TestRxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestRxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F85EF4103170F6FB9977CC /* Pods-TestRxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestRxApp.release.xcconfig"; path = "Target Support Files/Pods-TestRxApp/Pods-TestRxApp.release.xcconfig"; sourceTree = "<group>"; };
 		D7A9D8BA8FD3194B18C43BBB /* Pods-TestRxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestRxApp.debug.xcconfig"; path = "Target Support Files/Pods-TestRxApp/Pods-TestRxApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				0D0E4FE72642B8EF00BF6598 /* String+Validation.swift */,
+				0D0E503D26454BB900BF6598 /* IntrinsicTableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -151,6 +166,7 @@
 		0D0E4FEA2642BA5000BF6598 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0D0E5038264546F200BF6598 /* PostDetails */,
 				0D0E4FE92642BA4700BF6598 /* Posts */,
 				0D0E4FE12642AB2800BF6598 /* Login */,
 			);
@@ -194,6 +210,7 @@
 			children = (
 				0D0E4FD82642AA2300BF6598 /* LaunchScreen.storyboard */,
 				0D0E4FD32642AA2100BF6598 /* Main.storyboard */,
+				0D0E503B2645471C00BF6598 /* PostDetails.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -205,8 +222,28 @@
 				0D0E50242643F1A200BF6598 /* AppCoordinator.swift */,
 				0D0E50262643F7B600BF6598 /* LoginCoordinator.swift */,
 				0D0E50282644106600BF6598 /* PostsCoordinator.swift */,
+				0D0E504126454E1600BF6598 /* PostDetailsCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0D0E5038264546F200BF6598 /* PostDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0D0E5043264551DC00BF6598 /* Views */,
+				0D0E50392645470E00BF6598 /* PostDetailsViewController.swift */,
+				0D0E503F26454DD700BF6598 /* PostDetailsViewModel.swift */,
+			);
+			path = PostDetails;
+			sourceTree = "<group>";
+		};
+		0D0E5043264551DC00BF6598 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D0E5044264551F500BF6598 /* CommentTableViewCell.swift */,
+				0D0E5045264551F500BF6598 /* CommentTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A23C1D7D885612C3B210C811 /* Pods */ = {
@@ -287,6 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D0E4FDA2642AA2300BF6598 /* LaunchScreen.storyboard in Resources */,
+				0D0E5047264551F500BF6598 /* CommentTableViewCell.xib in Resources */,
+				0D0E503C2645471C00BF6598 /* PostDetails.storyboard in Resources */,
 				0D0E4FD72642AA2300BF6598 /* Assets.xcassets in Resources */,
 				0D0E4FD52642AA2100BF6598 /* Main.storyboard in Resources */,
 				0D0E4FF92642BF7800BF6598 /* PostTableViewCell.xib in Resources */,
@@ -363,13 +402,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D0E4FF82642BF7800BF6598 /* PostTableViewCell.swift in Sources */,
+				0D0E504026454DD700BF6598 /* PostDetailsViewModel.swift in Sources */,
 				0D0E502B264416F100BF6598 /* Wrapppers.swift in Sources */,
 				0D0E4FEC2642BA6900BF6598 /* PostsViewController.swift in Sources */,
 				0D0E50232643F07C00BF6598 /* Coordinator.swift in Sources */,
 				0D0E4FE32642AB4100BF6598 /* LoginViewController.swift in Sources */,
+				0D0E503E26454BB900BF6598 /* IntrinsicTableView.swift in Sources */,
+				0D0E504226454E1600BF6598 /* PostDetailsCoordinator.swift in Sources */,
 				0D0E4FCE2642AA2100BF6598 /* AppDelegate.swift in Sources */,
 				0D0E4FEE2642BA8300BF6598 /* PostsViewModel.swift in Sources */,
 				0D0E50332645240800BF6598 /* DIContainer.swift in Sources */,
+				0D0E5046264551F500BF6598 /* CommentTableViewCell.swift in Sources */,
 				0D0E50252643F1A200BF6598 /* AppCoordinator.swift in Sources */,
 				0D0E4FF42642BB6000BF6598 /* Comment.swift in Sources */,
 				0D0E50312644232D00BF6598 /* AuthManager.swift in Sources */,
@@ -383,6 +426,7 @@
 				0D0E502D26441B4F00BF6598 /* User.swift in Sources */,
 				0D0E50012642D1FC00BF6598 /* DataManager.swift in Sources */,
 				0D0E50292644106600BF6598 /* PostsCoordinator.swift in Sources */,
+				0D0E503A2645470E00BF6598 /* PostDetailsViewController.swift in Sources */,
 				0D0E503726453D3E00BF6598 /* PostsManager.swift in Sources */,
 				0D0E4FFE2642C68B00BF6598 /* R.generated.swift in Sources */,
 			);

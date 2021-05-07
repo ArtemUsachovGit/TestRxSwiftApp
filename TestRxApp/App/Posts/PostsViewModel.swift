@@ -66,11 +66,14 @@ final class PostsViewModel {
             .disposed(by: bag)
     }
     
-    func selected(postAt index: Int) {
-        guard self.mode != .favorites else { return }
+    @discardableResult
+    func selected(postAt index: Int) -> Post {
         let selectedPost = posts.value[index]
-        favPosts.insert(selectedPost)
-        postsManager.save(Array(favPosts), fileName: .favPosts)
+        if self.mode != .favorites {
+            favPosts.insert(selectedPost)
+            postsManager.save(Array(favPosts), fileName: .favPosts)
+        }
+        return selectedPost
     }
     
     func logout() {

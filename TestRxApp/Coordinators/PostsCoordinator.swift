@@ -41,6 +41,14 @@ class PostsCoordinator: NavigationCoordinator {
         self.navigationController.setViewControllers([vc], animated: true)
     }
     
+    func showDetails(for post: Post) {
+        let postDetailsCoordinator = PostsDetailsCoordinator(navigationController: navigationController,
+                                                             parent: self,
+                                                             post: post)
+        childCoordinators.append(postDetailsCoordinator)
+        postDetailsCoordinator.start()
+    }
+    
     func doLogout() {
         parent?.logout()
     }
