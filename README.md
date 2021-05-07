@@ -12,14 +12,14 @@
 
 ## Thirdparty lib
 - Reactive programming
--- RxSwift
--- RxRelay
--- RxCocoa
+ - RxSwift
+ - RxRelay
+ - RxCocoa
 - Resources
--- R.swift
+ - R.swift
 - Networking
--- Alamofire
+ - Alamofire
 - Keychaine
--- SwiftKeychainWrapper
+ - SwiftKeychainWrapper
 - Dependency Injection
--- Swinject
+ - Swinject
