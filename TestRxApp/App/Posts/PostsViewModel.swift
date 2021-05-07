@@ -16,7 +16,7 @@ final class PostsViewModel {
         case posts
         case favorites
     }
-    
+
     private let bag = DisposeBag()
     
     let posts = BehaviorRelay<[Post]>(value: [])
@@ -26,17 +26,19 @@ final class PostsViewModel {
 
     private var allPosts: [Post] = []
     private var mode: Mode = .posts
-    private var favPosts = Set<Post>() //ids of fav posts
+    private var favPosts: Set<Post> //ids of fav posts
     
-    private static let fileName = "posts"
-    
-    private let dataManager: DataManager
     private let authManager: AuthManager
+    private let networking: Networking
+    private let postsManager: PostsManager
     
-    init(dataManager: DataManager, authManager: AuthManager) {
+    init(authManager: AuthManager, networking: Networking, postsManager: PostsManager) {
         
+        self.networking = networking
         self.authManager = authManager
-        self.dataManager = dataManager
+        self.postsManager = postsManager
+        
+        self.favPosts = Set(postsManager.loadLocalPosts(.favPosts) ?? [])
         
         selectedMode
             .subscribe(onNext: { [unowned self] mode in
@@ -68,6 +70,7 @@ final class PostsViewModel {
         guard self.mode != .favorites else { return }
         let selectedPost = posts.value[index]
         favPosts.insert(selectedPost)
+        postsManager.save(Array(favPosts), fileName: .favPosts)
     }
     
     func logout() {
@@ -76,21 +79,20 @@ final class PostsViewModel {
     
     func loadPosts() {
         isLoading.accept(true)
-        AF.request("https://jsonplaceholder.typicode.com/posts").responseJSON { [weak self] response in
+        networking.getPosts { [weak self] result in
             self?.isLoading.accept(false)
-            switch response.result {
-            case .success(let value):
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: value)
-                    let posts = try JSONDecoder().decode([Post].self, from: data)
-                    try self?.dataManager.saveData(data, filename: PostsViewModel.fileName)
-                    self?.setupInitialData(posts)
-                } catch {
-                    self?.loadLocalPosts()
-                }
+            switch result {
+            case .success(let posts):
+                self?.setupInitialData(posts)
+                self?.postsManager.save(posts, fileName: .allPosts)
             case .failure(let error):
-                if error.responseCode != 500 {
-                    self?.loadLocalPosts()
+                switch error {
+                case .parsing, .unknown:
+                    let posts = self?.postsManager.loadLocalPosts(.allPosts) ?? []
+                    self?.setupInitialData(posts)
+                case .server:
+                    //show server error
+                    print("Server retruning error on posts request")
                 }
             }
         }
@@ -102,12 +104,5 @@ private extension PostsViewModel {
     func setupInitialData(_ posts: [Post]) {
         self.allPosts = posts
         self.posts.accept(posts)
-    }
-    
-    func loadLocalPosts() {
-        if let postsData = dataManager.loadData(path: PostsViewModel.fileName),
-           let posts = try? JSONDecoder().decode([Post].self, from: postsData) {
-            self.setupInitialData(posts)
-        }
     }
 }

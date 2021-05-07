@@ -14,10 +14,4 @@ struct Post: Codable, Hashable {
     let title: String
     let body: String
     
-    enum CodingKeys: String, CodingKey {
-        case userId
-        case id
-        case title
-        case body
-    }
 }

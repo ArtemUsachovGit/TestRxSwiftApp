@@ -32,6 +32,8 @@
 		0D0E502F26441DEC00BF6598 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E502E26441DEC00BF6598 /* World.swift */; };
 		0D0E50312644232D00BF6598 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E50302644232D00BF6598 /* AuthManager.swift */; };
 		0D0E50332645240800BF6598 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E50322645240800BF6598 /* DIContainer.swift */; };
+		0D0E50352645337600BF6598 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E50342645337600BF6598 /* Network.swift */; };
+		0D0E503726453D3E00BF6598 /* PostsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E503626453D3E00BF6598 /* PostsManager.swift */; };
 		0ED2615BB73F675A8DDBA41C /* Pods_TestRxApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615EB2B28BFC1530BD86495C /* Pods_TestRxApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		0D0E502E26441DEC00BF6598 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		0D0E50302644232D00BF6598 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		0D0E50322645240800BF6598 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		0D0E50342645337600BF6598 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		0D0E503626453D3E00BF6598 /* PostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsManager.swift; sourceTree = "<group>"; };
 		615EB2B28BFC1530BD86495C /* Pods_TestRxApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestRxApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F85EF4103170F6FB9977CC /* Pods-TestRxApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestRxApp.release.xcconfig"; path = "Target Support Files/Pods-TestRxApp/Pods-TestRxApp.release.xcconfig"; sourceTree = "<group>"; };
 		D7A9D8BA8FD3194B18C43BBB /* Pods-TestRxApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestRxApp.debug.xcconfig"; path = "Target Support Files/Pods-TestRxApp/Pods-TestRxApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				0D0E502A264416F100BF6598 /* Wrapppers.swift */,
 				0D0E50302644232D00BF6598 /* AuthManager.swift */,
 				0D0E50322645240800BF6598 /* DIContainer.swift */,
+				0D0E50342645337600BF6598 /* Network.swift */,
+				0D0E503626453D3E00BF6598 /* PostsManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -372,10 +378,12 @@
 				0D0E4FF22642BB0500BF6598 /* Post.swift in Sources */,
 				0D0E4FE52642ABC500BF6598 /* LoginViewModel.swift in Sources */,
 				0D0E4FD02642AA2100BF6598 /* SceneDelegate.swift in Sources */,
+				0D0E50352645337600BF6598 /* Network.swift in Sources */,
 				0D0E50272643F7B600BF6598 /* LoginCoordinator.swift in Sources */,
 				0D0E502D26441B4F00BF6598 /* User.swift in Sources */,
 				0D0E50012642D1FC00BF6598 /* DataManager.swift in Sources */,
 				0D0E50292644106600BF6598 /* PostsCoordinator.swift in Sources */,
+				0D0E503726453D3E00BF6598 /* PostsManager.swift in Sources */,
 				0D0E4FFE2642C68B00BF6598 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

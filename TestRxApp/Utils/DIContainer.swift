@@ -21,8 +21,13 @@ class DIContainer {
     }
     
     init() {
+
         container
             .register(AuthManager.self, factory: { _ in  AuthManager() })
+            .inObjectScope(.container)
+        
+        container
+            .register(Networking.self) { _ in Networking() }
             .inObjectScope(.container)
         
         container
@@ -32,6 +37,13 @@ class DIContainer {
             .register(DataManager.self, factory: { r in
                 let fileManager = r.resolve(FileManager.self)!
                 return FileDataManagerImpl(fileManager: fileManager)
+            })
+            .inObjectScope(.container)
+        
+        container
+            .register(PostsManager.self, factory: { resolver in
+                let dataManager = resolver.resolve(DataManager.self)!
+                return PostsManager(dataManager: dataManager)
             })
             .inObjectScope(.container)
         
