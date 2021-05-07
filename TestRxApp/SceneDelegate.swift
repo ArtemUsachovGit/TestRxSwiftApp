@@ -23,7 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appWindow.windowScene = windowScene
         
         let navController = UINavigationController()
-        coordinator = AppCoordinator(navigationController: navController)
+        let authManger = Current.diContainer.resolve(service: AuthManager.self)!
+        coordinator = AppCoordinator(navigationController: navController,
+                                     authManager: authManger)
         coordinator?.start()
         
         appWindow.rootViewController = navController

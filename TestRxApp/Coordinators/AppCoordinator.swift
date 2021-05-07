@@ -14,13 +14,17 @@ class AppCoordinator: NavigationCoordinator {
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
     
-    init(navigationController: UINavigationController) {
+    //Dependency
+    var authManager: AuthManager!
+    
+    init(navigationController: UINavigationController, authManager: AuthManager) {
+        self.authManager = authManager
         self.navigationController = navigationController
     }
     
     func start() {
         //for handling back button press
-        if Current.authManager.isLoggedIn {
+        if authManager.isLoggedIn {
             showPosts()
         } else {
             showLogin()

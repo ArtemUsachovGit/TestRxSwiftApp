@@ -27,8 +27,26 @@ class PostsCoordinator: NavigationCoordinator {
     
     func start() {
         guard let vc = Storyboard.main.postsController() else { return }
+        
+        //Dependencies
+        let postsManager = Current.diContainer.resolve(service: PostsManager.self)!
+        let authManager = Current.diContainer.resolve(service: AuthManager.self)!
+        let networking = Current.diContainer.resolve(service: Networking.self)!
+        
+        let viewModel = PostsViewModel(authManager: authManager,
+                                       networking: networking,
+                                       postsManager: postsManager)
+        vc.viewModel = viewModel
         vc.coordinator = self
         self.navigationController.setViewControllers([vc], animated: true)
+    }
+    
+    func showDetails(for post: Post) {
+        let postDetailsCoordinator = PostsDetailsCoordinator(navigationController: navigationController,
+                                                             parent: self,
+                                                             post: post)
+        childCoordinators.append(postDetailsCoordinator)
+        postDetailsCoordinator.start()
     }
     
     func doLogout() {

@@ -8,9 +8,9 @@
 import Foundation
 
 struct World {
-    var authManager: AutManager
+    var diContainer: DIContainer
 }
 
 var Current = World (
-    authManager: AutManager()
+    diContainer: DIContainer()
 )

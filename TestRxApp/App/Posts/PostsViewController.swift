@@ -16,8 +16,9 @@ final class PostsViewController: UIViewController, Coordinatable {
     @IBOutlet weak private var postsTable: UITableView!
     @IBOutlet weak private var loadingIndicator: UIActivityIndicatorView!
     
+    var viewModel: PostsViewModel!
+    
     private let bag = DisposeBag()
-    private let viewModel = PostsViewModel()
     private let cellIdentifier = R.reuseIdentifier.postCell.identifier
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -94,6 +95,7 @@ extension PostsViewController: UISearchResultsUpdating {
 extension PostsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.selected(postAt: indexPath.row)
+        let post = viewModel.selected(postAt: indexPath.row)
+        coordinator?.showDetails(for: post)
     }
 }

@@ -10,4 +10,5 @@ target 'TestRxApp' do
   pod 'R.swift'
   pod 'Alamofire'
   pod 'SwiftKeychainWrapper'
+  pod 'Swinject'
 end
